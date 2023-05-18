@@ -5,9 +5,6 @@ carros = ("BMW","Ford","Honda","Hyundai","Mitsubishi","Porsche")
 paises = ("Australia","Albania","Argelia","Herzegovina","Bulgaria","Chipre")
 times = ("Barcelona","Liverpool","Benfica","Chelsea","Juventus","Arsenal")
 
-
-
-
 while True:
     print("########### G-A-M-E #################")
     print("[1]- Jogar")
