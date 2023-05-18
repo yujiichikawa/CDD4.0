@@ -29,11 +29,14 @@ def geradorUnderline(palavra,historicoLetra):
             tabela += "_"
     return tabela
 
-def tela(titulo,historicoLetra,qtdLetras):
+def tela(titulo,historicoLetra,qtdLetras,tentativas):
+    print("_" * 100)
     print(f"####### Tema: {titulo} #######")
     print(f"Quantidade de Letras: {qtdLetras}")
     print("_"*100)
-    print(f"Tentativas: {' '.join(historicoLetra)}")
+    print(f"Histórico: {' '.join(historicoLetra)}")
+    print("_" * 100)
+    print(f"Tentativas restantes: {tentativas}")
     print("_" * 100)
     print('____')
     print('|  0')
@@ -54,8 +57,9 @@ def gameplay(tema,titulo):
     palavra = palavraRandom(tema)
     qtdLetras = len(palavra)
     historicoLetra = []
+    tentativas = 7
     while end == False:
-        tela(titulo,historicoLetra,qtdLetras)
+        tela(titulo,historicoLetra,qtdLetras,tentativas)
 
         tabela = geradorUnderline(palavra,historicoLetra)
         print(tabela)
@@ -84,6 +88,13 @@ def gameplay(tema,titulo):
                     if veri:
                         print("Palavra já citada")
                         continue
+
+                    if letra not in palavra:
+                        tentativas-=1
+
+                    if tentativas == 0:
+                        print(f"Você perdeu!\nPalavra correta: {palavra}")
+                        end = True
 
                     historicoLetra.append(letra)
 
